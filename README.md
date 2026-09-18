@@ -4,7 +4,7 @@ FOOTPRINTING & NETWORK SCANNING PHASES
 
 W2-PM-FINAL | CYBERSECURITY |  NETWORKWALKS 
 
-|**Pentester Name**<br>**(Cybersecurity Professional)**|**Ramen Debbarma**|
+|**Pentester Name**<br>**(Cybersecurity Intern)**|**Ramen Debbarma**|
 |---|---|
 |**Program/Batch**|B083-Networkwalks|
 |**Date**|17 August 2026|
