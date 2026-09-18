@@ -185,34 +185,48 @@ Pentesting Project Report  |  Networkwalks  |  Page 6
 
 * **WHOIS:** Queried domain registration information, revealing sponsorship via GoDaddy and active name servers hosted on HostGator (`NS6135.HOSTGATOR.COM` / `NS6136.HOSTGATOR.COM`).
 ![Nslookup Resolution Output](/Screenshots/image1.jpeg)
-*Figure 4.1: WHOIS domain lookup output showing domain registration and GoDaddy/HostGator infrastructure details.*
+*Figure 1.1: WHOIS domain lookup output showing domain registration and GoDaddy/HostGator infrastructure details.*
 
 * **WhatWeb:** Analyzed technical web assets, detecting WordPress 7.0.4, WP Download Manager 3.3.58, Bootstrap 7.1, and an Apache web server running on IP `192.232.216.135`.
 ![Nslookup Resolution Output](/Screenshots/image2.jpeg)
-*Figure 4.2: WhatWeb fingerprinting results identifying WordPress, plugins, and Apache web server details.*
+*Figure 1.2: WhatWeb fingerprinting results identifying WordPress, plugins, and Apache web server details.*
 
 * **Nslookup:** Querying standard DNS resolved the target host `networkwalks.com` to public IP address `192.232.216.135`.
 ![Nslookup Resolution Output](/Screenshots/image3.jpg)
-*Figure 4.3: Nslookup resolving networkwalks.com to public IP address 192.232.216.135.*
+*Figure 1.3: Nslookup resolving networkwalks.com to public IP address 192.232.216.135.*
 
 * **Curl (`curl -I`):** Inspected HTTP headers (`301 Moved Permanently`), revealing `WordPress Really Simple Security` redirection rules, cookies (`_wpdm_client`), and exposing the WordPress REST API endpoint at `/wp-json/`.
 ![Nslookup Resolution Output](/Screenshots/image4.jpg)
-*Figure 4.4: Curl HTTP header response inspection revealing active WordPress security plugins and headers.*
+*Figure 1.4: Curl HTTP header response inspection revealing active WordPress security plugins and headers.*
 
 
 * **Wafw00f:** Fingerprinted active Web Application Firewalls, detecting **ModSecurity (SpiderLabs)** actively protecting the application.
 ![Nslookup Resolution Output](/Screenshots/image5.jpg)
-*Figure 4.5: Wafw00f execution output confirming ModSecurity WAF protection.*
+*Figure 1.5: Wafw00f execution output confirming ModSecurity WAF protection.*
 
 
 * **DNSRecon:** Conducted general enumeration, discovering name servers, mail exchange servers (`mail.networkwalks.com`), SPF/TXT records (`v=spf1 mx +ip4:50.87.144.87 include:websitewelcome.com -all`), and multiple `autodiscover` SRV records pointing to cPanel discovery infrastructure.
 ![Nslookup Resolution Output](/Screenshots/image6.jpg)
-*Figure 4.6: DNSRecon enumerating name servers, MX records, SPF policies, and cPanel SRV endpoints.*
+*Figure 1.6: DNSRecon enumerating name servers, MX records, SPF policies, and cPanel SRV endpoints.*
 
+* **theHarvester:** Conducted passive OSINT scanning to gather exposed email addresses, hostnames, subdomains, and public IPs across multiple search engines and archives without directly alerting target systems.
 ![Nslookup Resolution Output](/Screenshots/image7.jpg)
+*Figure 1.7: theHarvester scanning modules executing against target domain and aggregating passive OSINT.*
+
+
+* **Exposed Admin Interface Verification:** Identified direct access pathways to public control panels (`cpanel.networkwalks.com`) during OSINT aggregation, exposing potential credential brute-force targets.
 ![Nslookup Resolution Output](/Screenshots/image8.jpg)
+*Figure 1.8: Exposed web control panel login interface discovered during host enumeration.*
+
+
+* **Zenmap Ping Sweep:** Executed a sweep across local subnet bounds (`192.168.202.0/24`) to map live virtual hosts and gather associated hardware MAC addresses.
 ![Nslookup Resolution Output](/Screenshots/image9.jpg)
+*Figure 1.9: Zenmap Ping Scan terminal output mapping active LAN devices and associated MAC vendor addresses.*
+
+* **Network Topology Mapping:** Visualized local network connectivity paths relative to the scanning node using Zenmap's interactive graphic topology viewer.
 ![Nslookup Resolution Output](/Screenshots/image10.jpg)
+*Figure 1.10: Zenmap generated fisheye topology map displaying discovered local network infrastructure.*
+
 -End- 
 
 ***Author*** <br> **Ramen Debbarma** <br> **Cybersecurity Intern** <br> LinkedIn: https://www.linkedin.com/in/ramen-debbarma-a71632286/ 
